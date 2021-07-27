@@ -5,6 +5,7 @@ const koaBody = require('koa-body')
 const json = require('koa-json')
 const cors = require('koa-cors')
 const fs = require('fs')
+const sb = require('@supabase/supabase-js')
 
 const app = new Koa()
 const router = new Router()
