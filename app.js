@@ -41,7 +41,7 @@ router.post('/todos', async (ctx) => {
         .from('todos')
         .insert(ctx.request.body)
     if(error) throw error
-    else ctx.body = data
+    else ctx.body = data[0]
 })
 
 router.get('/todos/:id', async (ctx) => {
@@ -60,7 +60,7 @@ router.patch('/todos/:id', async (ctx) => {
         .upsert(ctx.request.body)
         .eq('id', ctx.request.params.id)
     if(error) throw error
-    else ctx.body = data
+    else ctx.body = data[0]
 })
 
 router.delete('/todos/:id', async (ctx) => {
@@ -69,7 +69,7 @@ router.delete('/todos/:id', async (ctx) => {
         .delete()
         .eq('id', ctx.request.params.id)
     if(error) throw error
-    else ctx.body = data
+    else ctx.body = data[0]
 })
 
 app.use(router.routes())
